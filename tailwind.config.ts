@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config = {
-    darkMode: ["class"],
+    darkMode: ["class"], // 다크 모드를 클래스 기반으로 설정
     content: [
         "./pages/**/*.{ts,tsx}",
         "./components/**/*.{ts,tsx}",
@@ -34,7 +34,7 @@ const config = {
             },
         },
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [require("tailwindcss-animate")], // 애니메이션 플러그인
 } satisfies Config;
 
 export default config;
