@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -15,6 +16,9 @@ export default function Home() {
                 <Button className="bg-blue-600 hover:bg-blue-500" size={"lg"}>
                     Blue-600
                 </Button>
+                <Link href={"/sign"}>
+                    <Button variant={"link"}>Login</Button>
+                </Link>
                 <Input placeholder="text" />
             </div>
         </main>
