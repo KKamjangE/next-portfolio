@@ -1,3 +1,5 @@
+import db from "@/lib/db";
+import { setSesstion } from "@/lib/session";
 import { notFound, redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 
@@ -38,8 +40,31 @@ export async function GET(request: NextRequest) {
         })
     ).json();
 
-    // TODO: user 정보 DB에 저장 후 로그인
-    // TODO: 이미 있는 유저면 로그인
+    const user = await db.user.findUnique({
+        where: {
+            github_id: id,
+        },
+        select: {
+            id: true,
+        },
+    });
 
+    if (user) {
+        await setSesstion(user.id);
+        return redirect("/");
+    }
+
+    const newUser = await db.user.create({
+        data: {
+            username: login,
+            avatar_url,
+            github_id: id,
+        },
+        select: {
+            id: true,
+        },
+    });
+
+    await setSesstion(newUser.id);
     return redirect("/");
 }
