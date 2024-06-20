@@ -16,7 +16,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={notoSansKr.className}>{children}</body>
+            <body
+                className={`${notoSansKr.className} mx-auto min-h-screen w-full max-w-screen-sm`}
+            >
+                {children}
+            </body>
         </html>
     );
 }
