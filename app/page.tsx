@@ -1,13 +1,21 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
 export default function Home() {
     return (
-        <main className="mx-auto flex w-full max-w-screen-sm flex-col">
-            <div className="flex justify-center gap-10 p-5">
-                <button className="rounded-md bg-amber-500 px-5 py-3 text-white transition-colors hover:bg-amber-600 active:bg-amber-700">
-                    Amber
-                </button>
-                <button className="rounded-md bg-blue-600 px-5 py-3 text-white transition-colors hover:bg-blue-500 active:bg-blue-700">
-                    Blue
-                </button>
+        <main className="mx-auto flex-col">
+            <div className="flex items-center justify-center gap-10 p-5">
+                <Button
+                    className="bg-amber-500 hover:bg-amber-400"
+                    variant={"outline"}
+                    size={"lg"}
+                >
+                    Amber-500
+                </Button>
+                <Button className="bg-blue-600 hover:bg-blue-500" size={"lg"}>
+                    Blue-600
+                </Button>
+                <Input placeholder="text" />
             </div>
         </main>
     );
