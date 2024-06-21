@@ -26,6 +26,9 @@ export default async function Home() {
                         <Button variant={"link"}>SignIn</Button>
                     </Link>
                 )}
+                <Link href={"/feedback"}>
+                    <Button variant={"link"}>Feedback</Button>
+                </Link>
             </div>
         </main>
     );
