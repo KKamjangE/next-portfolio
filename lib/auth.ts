@@ -19,6 +19,10 @@ export const authOptions: AuthOptions = {
     ],
     adapter: PrismaAdapter(db),
     callbacks: {
+        async session({ session, user }) {
+            session.user.id = user.id;
+            return session;
+        },
         async redirect({ baseUrl }) {
             return Promise.resolve(baseUrl);
         },
