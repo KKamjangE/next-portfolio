@@ -1,12 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 export default function Sign() {
-    const signOutClick = async () => {
-        await signOut();
-    };
     const loginWithGithub = async () => {
         await signIn("github");
     };
@@ -22,7 +19,6 @@ export default function Sign() {
             </h1>
             <p>로그인 하시면 포트폴리오에 대한 피드백을 남기실 수 있어요.</p>
             <div className="flex flex-col gap-5">
-                <button onClick={signOutClick}>signOut</button>
                 <Button
                     onClick={loginWithGithub}
                     variant={"outline"}
