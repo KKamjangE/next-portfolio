@@ -1,9 +1,9 @@
-"use server";
+"use server"
 
-import { commentSchema } from "@/app/feedback/schema";
-import db from "@/lib/db";
-import { Prisma } from "@prisma/client";
-import { unstable_cache as nextCache, revalidateTag } from "next/cache";
+import { commentSchema } from "@/app/feedback/schema"
+import db from "@/lib/db"
+import { Prisma } from "@prisma/client"
+import { unstable_cache as nextCache, revalidateTag } from "next/cache"
 
 async function getComments() {
     const comments = await db.comments.findMany({
@@ -16,31 +16,31 @@ async function getComments() {
             },
         },
         orderBy: { createdAt: "desc" },
-    });
+    })
 
-    return comments;
+    return comments
 }
 
 export async function getCachedComments() {
     const cachedOperation = nextCache(getComments, ["comments"], {
         tags: ["comments"],
-    });
+    })
 
-    return cachedOperation();
+    return cachedOperation()
 }
 
-export type CommentsType = Prisma.PromiseReturnType<typeof getComments>;
+export type CommentsType = Prisma.PromiseReturnType<typeof getComments>
 
 export async function createComments(formData: FormData) {
     const data = {
         payload: formData.get("payload"),
         userId: formData.get("userId"),
-    };
+    }
 
-    const result = commentSchema.safeParse(data);
+    const result = commentSchema.safeParse(data)
 
     if (!result.success) {
-        return result.error.flatten();
+        return result.error.flatten()
     } else {
         await db.comments.create({
             data: {
@@ -51,10 +51,10 @@ export async function createComments(formData: FormData) {
                     },
                 },
             },
-        });
+        })
     }
 
-    revalidateTag("comments");
+    revalidateTag("comments")
 }
 
 export async function deleteComment(commentId: string) {
@@ -62,7 +62,7 @@ export async function deleteComment(commentId: string) {
         where: {
             id: commentId,
         },
-    });
+    })
 
-    revalidateTag("comments");
+    revalidateTag("comments")
 }

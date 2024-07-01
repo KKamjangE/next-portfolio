@@ -1,14 +1,14 @@
-import { withAuth } from "next-auth/middleware";
-import { NextResponse } from "next/server";
+import { withAuth } from "next-auth/middleware"
+import { NextResponse } from "next/server"
 
 export default withAuth(
     function middleware() {
-        return NextResponse.next();
+        return NextResponse.next()
     },
     {
         callbacks: {
             authorized: ({ req }) => {
-                return !Boolean(req.cookies.get("next-auth.session-token"));
+                return !Boolean(req.cookies.get("next-auth.session-token"))
             },
         },
         secret: process.env.NEXTAUTH_SECRET,
@@ -16,8 +16,8 @@ export default withAuth(
             signIn: "/",
         },
     },
-);
+)
 
 export const config = {
     matcher: ["/sign"],
-};
+}

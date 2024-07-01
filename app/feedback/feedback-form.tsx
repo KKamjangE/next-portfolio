@@ -1,24 +1,24 @@
-"use client";
+"use client"
 
 import {
     CommentsType,
     createComments,
     deleteComment,
-} from "@/app/feedback/actions";
-import { formatToTimeAge } from "@/lib/utils";
-import { CircleUserRound } from "lucide-react";
-import Image from "next/image";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { commentSchema } from "@/app/feedback/schema";
-import { z } from "zod";
-import { useEffect } from "react";
+} from "@/app/feedback/actions"
+import { formatToTimeAge } from "@/lib/utils"
+import { CircleUserRound } from "lucide-react"
+import Image from "next/image"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { commentSchema } from "@/app/feedback/schema"
+import { z } from "zod"
+import { useEffect } from "react"
 
 interface FeedbackFormProps {
-    comments: CommentsType;
-    userId?: string;
+    comments: CommentsType
+    userId?: string
 }
 
 export default function FeedbackForm({ comments, userId }: FeedbackFormProps) {
@@ -31,45 +31,45 @@ export default function FeedbackForm({ comments, userId }: FeedbackFormProps) {
         formState: { errors },
     } = useForm<z.infer<typeof commentSchema>>({
         resolver: zodResolver(commentSchema),
-    });
+    })
 
     useEffect(() => {
-        setValue("userId", userId);
-    }, [userId, setValue]);
+        setValue("userId", userId)
+    }, [userId, setValue])
 
     const onSubmit = handleSubmit(async (data) => {
-        resetField("payload");
+        resetField("payload")
         if (!data.userId) {
-            return setError("userId", { message: "로그인을 해주세요." });
+            return setError("userId", { message: "로그인을 해주세요." })
         }
 
-        const formData = new FormData();
+        const formData = new FormData()
 
-        formData.append("payload", data.payload);
-        formData.append("userId", data.userId);
+        formData.append("payload", data.payload)
+        formData.append("userId", data.userId)
 
-        const errors = await createComments(formData);
+        const errors = await createComments(formData)
 
         if (errors) {
             for (const [field, message] of Object.entries(errors.fieldErrors)) {
                 setError(field as keyof z.infer<typeof commentSchema>, {
                     message: message.join(", "),
-                });
+                })
             }
         }
-    });
+    })
 
     const onValid = async () => {
-        await onSubmit();
-    };
+        await onSubmit()
+    }
 
     const onDeleteComment = (commentId: string) => {
-        const ok = window.confirm("정말 삭제하시겠습니까?");
+        const ok = window.confirm("정말 삭제하시겠습니까?")
 
-        if (!ok) return;
+        if (!ok) return
 
-        deleteComment(commentId);
-    };
+        deleteComment(commentId)
+    }
 
     return (
         <div className="flex flex-col gap-5 p-5">
@@ -132,5 +132,5 @@ export default function FeedbackForm({ comments, userId }: FeedbackFormProps) {
                 </div>
             ))}
         </div>
-    );
+    )
 }

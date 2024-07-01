@@ -1,10 +1,10 @@
-import SignOutButton from "@/components/sign-out-button";
-import { Button } from "@/components/ui/button";
-import { getAuthSession } from "@/lib/auth";
-import Link from "next/link";
+import SignOutButton from "@/components/sign-out-button"
+import { Button } from "@/components/ui/button"
+import { getAuthSession } from "@/lib/auth"
+import Link from "next/link"
 
 export default async function Home() {
-    const session = await getAuthSession();
+    const session = await getAuthSession()
 
     return (
         <main className="mx-auto flex-col">
@@ -21,5 +21,5 @@ export default async function Home() {
                 </Link>
             </div>
         </main>
-    );
+    )
 }

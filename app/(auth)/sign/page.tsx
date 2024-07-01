@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import { signIn } from "next-auth/react";
+import { Button } from "@/components/ui/button"
+import { signIn } from "next-auth/react"
 
 export default function Sign() {
     const loginWithGithub = async () => {
-        await signIn("github");
-    };
+        await signIn("github")
+    }
 
     const loginWithGoogle = async () => {
-        await signIn("google");
-    };
+        await signIn("google")
+    }
 
     return (
         <div className="flex flex-col gap-5 p-5">
@@ -65,5 +65,5 @@ export default function Sign() {
                 </Button>
             </div>
         </div>
-    );
+    )
 }
