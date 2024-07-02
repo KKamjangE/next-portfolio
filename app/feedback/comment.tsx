@@ -56,9 +56,7 @@ export default function Comment({ comment, userId }: CommentProps) {
                     </span>
                     {userId === comment.userId && (
                         <form action={onDeleteComment}>
-                            <Button className="bg-red-600 hover:bg-red-500">
-                                삭제
-                            </Button>
+                            <Button variant={"destructive"}>삭제</Button>
                         </form>
                     )}
                 </div>
