@@ -33,35 +33,39 @@ export default function Comment({ comment, userId }: CommentProps) {
             key={comment.id}
             className="flex w-full flex-col justify-end gap-3 rounded-md border border-neutral-400 p-5 shadow-xl"
         >
-            <div className="flex items-center gap-3">
-                {comment.user.image ? (
-                    <Image
-                        src={comment.user.image}
-                        alt={comment.user.name!}
-                        width={50}
-                        height={50}
-                        className="size-10 rounded-full"
-                    />
-                ) : (
-                    <CircleUserRound />
-                )}
-                <span className="text-lg font-semibold">
-                    {comment.user.name}
-                </span>
-                <span className="ml-auto text-sm">
-                    {formatToTimeAge(comment.createdAt.toString())}
-                </span>
+            <div className="flex items-center justify-between *:flex *:items-center *:justify-between *:gap-3">
+                <div>
+                    {comment.user.image ? (
+                        <Image
+                            src={comment.user.image}
+                            alt={comment.user.name!}
+                            width={50}
+                            height={50}
+                            className="size-10 rounded-full"
+                        />
+                    ) : (
+                        <CircleUserRound />
+                    )}
+                    <span className="text-lg font-semibold">
+                        {comment.user.name}
+                    </span>
+                </div>
+                <div>
+                    <span className="text-sm">
+                        {formatToTimeAge(comment.createdAt.toString())}
+                    </span>
+                    {userId === comment.userId && (
+                        <form action={onDeleteComment}>
+                            <Button className="bg-red-600 hover:bg-red-500">
+                                삭제
+                            </Button>
+                        </form>
+                    )}
+                </div>
             </div>
             <p className="break-words text-lg font-semibold">
                 {comment.payload}
             </p>
-            {userId === comment.userId && (
-                <form action={onDeleteComment} className="self-end">
-                    <Button className="bg-red-600 hover:bg-red-500">
-                        삭제
-                    </Button>
-                </form>
-            )}
         </div>
     )
 }
