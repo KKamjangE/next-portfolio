@@ -1,13 +1,6 @@
 "use client"
 
-import {
-    CommentsType,
-    createComments,
-    deleteComment,
-} from "@/app/feedback/actions"
-import { formatToTimeAge } from "@/lib/utils"
-import { CircleUserRound } from "lucide-react"
-import Image from "next/image"
+import { createComments } from "@/app/feedback/actions"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useForm } from "react-hook-form"
@@ -17,11 +10,10 @@ import { z } from "zod"
 import { useEffect } from "react"
 
 interface FeedbackFormProps {
-    comments: CommentsType
     userId?: string
 }
 
-export default function FeedbackForm({ comments, userId }: FeedbackFormProps) {
+export default function FeedbackForm({ userId }: FeedbackFormProps) {
     const {
         register,
         handleSubmit,
@@ -63,16 +55,8 @@ export default function FeedbackForm({ comments, userId }: FeedbackFormProps) {
         await onSubmit()
     }
 
-    const onDeleteComment = (commentId: string) => {
-        const ok = window.confirm("정말 삭제하시겠습니까?")
-
-        if (!ok) return
-
-        deleteComment(commentId)
-    }
-
     return (
-        <div className="flex flex-col gap-5 p-5">
+        <div className="my-5 flex flex-col gap-5">
             {userId ? (
                 <>
                     <form action={onValid} className="flex gap-3">
@@ -94,43 +78,6 @@ export default function FeedbackForm({ comments, userId }: FeedbackFormProps) {
                     로그인 하시면 포트폴리오에 대한 피드백을 남기실 수 있어요!
                 </p>
             )}
-            {comments.map((comment) => (
-                <div
-                    key={comment.id}
-                    className="flex w-full flex-col justify-end gap-3 rounded-md border border-neutral-400 p-5 shadow-xl"
-                >
-                    <div className="flex items-center gap-3">
-                        {comment.user.image ? (
-                            <Image
-                                src={comment.user.image}
-                                alt={comment.user.name!}
-                                width={50}
-                                height={50}
-                                className="size-10 rounded-full"
-                            />
-                        ) : (
-                            <CircleUserRound />
-                        )}
-                        <span className="text-lg font-semibold">
-                            {comment.user.name}
-                        </span>
-                        <span className="ml-auto text-sm">
-                            {formatToTimeAge(comment.createdAt.toString())}
-                        </span>
-                    </div>
-                    <p className="break-words text-lg font-semibold">
-                        {comment.payload}
-                    </p>
-                    {userId === comment.userId && (
-                        <Button
-                            onClick={() => onDeleteComment(comment.id)}
-                            className="self-end bg-red-600 hover:bg-red-500"
-                        >
-                            삭제
-                        </Button>
-                    )}
-                </div>
-            ))}
         </div>
     )
 }
