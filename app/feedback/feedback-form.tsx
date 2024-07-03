@@ -56,7 +56,7 @@ export default function FeedbackForm({ userId }: FeedbackFormProps) {
     }
 
     return (
-        <div className="my-5 flex flex-col gap-5">
+        <>
             {userId ? (
                 <>
                     <form action={onValid} className="flex gap-3">
@@ -78,6 +78,6 @@ export default function FeedbackForm({ userId }: FeedbackFormProps) {
                     로그인 하시면 포트폴리오에 대한 피드백을 남기실 수 있어요!
                 </p>
             )}
-        </div>
+        </>
     )
 }
