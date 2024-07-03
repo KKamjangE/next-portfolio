@@ -28,7 +28,7 @@ export default function ThemeButton() {
             variant={"ghost"}
             size={"icon"}
             onClick={onChangeTheme}
-            className="transition duration-150"
+            className="transition duration-300"
         >
             <Sun className="rotate-0 scale-100 transition dark:-rotate-180 dark:scale-0" />
             <Moon className="absolute rotate-180 scale-0 transition dark:rotate-0 dark:scale-100" />
