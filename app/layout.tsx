@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Noto_Sans_KR } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/header"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const notoSansKr = Noto_Sans_KR({ subsets: ["latin"] })
 
@@ -16,12 +17,18 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="en">
-            <body
-                className={`${notoSansKr.className} mx-auto min-h-screen w-full max-w-screen-sm`}
-            >
-                <Header />
-                {children}
+        <html lang="en" suppressHydrationWarning>
+            <body className={`${notoSansKr.className} min-h-screen`}>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                >
+                    <Header />
+                    <main className="mx-auto mb-20 mt-10 w-full max-w-screen-sm px-5">
+                        {children}
+                    </main>
+                </ThemeProvider>
             </body>
         </html>
     )

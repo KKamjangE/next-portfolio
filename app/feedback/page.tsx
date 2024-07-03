@@ -8,7 +8,7 @@ export default async function Feedback() {
     const session = await getAuthSession()
 
     return (
-        <div className="mx-5">
+        <>
             <FeedbackForm userId={session?.user.id} />
             <div className="flex flex-col gap-8">
                 {comments.map((comment) => (
@@ -19,6 +19,6 @@ export default async function Feedback() {
                     />
                 ))}
             </div>
-        </div>
+        </>
     )
 }
