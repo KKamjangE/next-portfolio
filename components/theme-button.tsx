@@ -3,15 +3,9 @@
 import { Button } from "@/components/ui/button"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { useEffect } from "react"
 
 export default function ThemeButton() {
     const { theme, systemTheme, setTheme } = useTheme()
-
-    useEffect(() => {
-        console.log(theme)
-        console.log("system", systemTheme)
-    }, [theme, systemTheme])
 
     const onChangeTheme = () => {
         let currentTheme
