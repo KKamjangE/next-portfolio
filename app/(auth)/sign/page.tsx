@@ -22,7 +22,7 @@ export default function Sign() {
                 <Button
                     onClick={loginWithGithub}
                     variant={"default"}
-                    className="text-md flex items-center justify-center gap-3 font-medium"
+                    className="text-md flex items-center justify-center gap-3 bg-neutral-950 font-medium hover:bg-neutral-950/90 dark:bg-neutral-50 dark:hover:bg-neutral-50/90"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -35,8 +35,8 @@ export default function Sign() {
                 </Button>
                 <Button
                     onClick={loginWithGoogle}
-                    variant={"outline"}
-                    className="text-md flex items-center justify-center gap-3 border-neutral-400 font-medium dark:bg-white dark:text-neutral-900"
+                    variant={"default"}
+                    className="text-md flex items-center justify-center gap-3 border border-neutral-400 bg-neutral-50 font-medium text-neutral-950 hover:bg-neutral-50/90 dark:bg-neutral-50 dark:hover:bg-neutral-50/90"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
