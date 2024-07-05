@@ -17,3 +17,13 @@ export function formatToTimeAge(date: string): string {
 
     return formatter.format(diff, "days")
 }
+
+export function formatToKRDate(date: Date): string {
+    const formatter = new Intl.DateTimeFormat("ko-KR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    })
+
+    return formatter.format(date)
+}
