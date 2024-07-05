@@ -77,13 +77,13 @@ model Comments {
 }
 
 model Projects {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   title       String
   description String
   startDate   DateTime
-  endDate     DateTime
-  urls        Urls?    @relation(fields: [urlsId], references: [id])
-  urlsId      String   @unique
+  endDate     DateTime?
+  urls        Urls      @relation(fields: [urlsId], references: [id])
+  urlsId      String    @unique
   skills      Skill[]
 
   createdAt DateTime @default(now())
