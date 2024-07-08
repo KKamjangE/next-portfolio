@@ -15,7 +15,7 @@ export default function AdminButton() {
         <Dialog>
             <DialogTrigger asChild>
                 <Button
-                    className="absolute bottom-10 right-10 z-50 h-14 w-14"
+                    className="fixed bottom-5 right-5 z-50 h-14 w-14"
                     size={"icon"}
                 >
                     <SettingsIcon className="size-8" />
