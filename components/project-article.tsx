@@ -6,7 +6,7 @@ interface ProjectArticleProps {
     title: string
     description: string
     startDate: Date
-    endDate: Date
+    endDate: Date | null
     urls: { github: string | null; blog: string | null; site: string | null }
     skills: { name: string }[]
 }
@@ -53,7 +53,7 @@ export default function ProjectArticle({
             </div>
             <p className="text-sm">
                 {formatToKRDate(startDate)}~
-                {formatToKRDate(endDate) ?? "진행 중"}
+                {endDate ? formatToKRDate(endDate) : "진행 중"}
             </p>
         </article>
     )
