@@ -3,7 +3,7 @@
 import { deleteComment } from "@/app/feedback/actions"
 import { Button } from "@/components/ui/button"
 import { formatToTimeAge } from "@/lib/utils"
-import { CircleUserRound } from "lucide-react"
+import { CircleUserRoundIcon } from "lucide-react"
 import Image from "next/image"
 
 interface CommentProps {
@@ -44,7 +44,7 @@ export default function Comment({ comment, userId }: CommentProps) {
                             className="size-10 rounded-full"
                         />
                     ) : (
-                        <CircleUserRound />
+                        <CircleUserRoundIcon />
                     )}
                     <span className="text-lg font-semibold">
                         {comment.user.name}

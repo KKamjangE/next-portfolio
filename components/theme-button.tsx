@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Moon, Sun } from "lucide-react"
+import { MoonIcon, SunIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 
 export default function ThemeButton() {
@@ -24,8 +24,8 @@ export default function ThemeButton() {
             onClick={onChangeTheme}
             className="transition duration-300"
         >
-            <Sun className="rotate-0 scale-100 transition dark:-rotate-180 dark:scale-0" />
-            <Moon className="absolute rotate-180 scale-0 transition dark:rotate-0 dark:scale-100" />
+            <SunIcon className="rotate-0 scale-100 transition dark:-rotate-180 dark:scale-0" />
+            <MoonIcon className="absolute rotate-180 scale-0 transition dark:rotate-0 dark:scale-100" />
         </Button>
     )
 }
