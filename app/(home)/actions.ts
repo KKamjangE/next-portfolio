@@ -7,6 +7,7 @@ export async function getProjects() {
         include: {
             skills: { select: { name: true } },
             urls: { select: { blog: true, github: true, site: true } },
+            descriptions: { select: { description: true } },
         },
     })
 

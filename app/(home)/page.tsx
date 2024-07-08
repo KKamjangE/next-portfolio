@@ -13,7 +13,7 @@ export default async function Home() {
                 {projects.map((project) => (
                     <ProjectArticle
                         key={project.id}
-                        description={project.description}
+                        descriptions={project.descriptions}
                         title={project.title}
                         startDate={project.startDate}
                         endDate={project.endDate}
