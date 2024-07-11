@@ -53,7 +53,6 @@ export default async function createProject(formData: FormData) {
             },
         })
 
-        revalidateTag("projects")
         redirect("/")
     }
 }

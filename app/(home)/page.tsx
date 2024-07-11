@@ -1,9 +1,8 @@
 import { getProjects } from "@/app/(home)/actions"
-import ProjectArticle from "@/components/project-article"
+import ProjectArticle from "@/app/(home)/project-article"
 
 export default async function Home() {
     const projects = await getProjects()
-    console.log(projects)
 
     return (
         <div>
