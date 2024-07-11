@@ -87,16 +87,15 @@ model Projects {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  urlsId    String?
 }
 
 model Urls {
-  id         String    @id @default(cuid())
+  id         String   @id @default(cuid())
   github     String?
   blog       String?
   site       String?
-  Projects   Projects? @relation(fields: [projectsId], references: [id], onDelete: Cascade)
-  projectsId String?   @unique
+  Projects   Projects @relation(fields: [projectsId], references: [id], onDelete: Cascade)
+  projectsId String   @unique
 }
 
 model Skill {
