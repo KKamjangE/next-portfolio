@@ -2,19 +2,22 @@
 
 import { projectSchema } from "@/app/(admin)/create-project/schema"
 import db from "@/lib/db"
+import { revalidateTag } from "next/cache"
+import { redirect } from "next/navigation"
 
 export default async function createProject(formData: FormData) {
     const data = {
         title: formData.get("title"),
         date: {
             from: new Date(formData.get("from") as string),
-            to: new Date(formData.get("to") as string),
+            to: formData.get("to")
+                ? new Date(formData.get("to") as string)
+                : undefined,
         },
         descriptions: JSON.parse(formData.get("descriptions") as string),
         urls: JSON.parse(formData.get("urls") as string),
         skills: JSON.parse(formData.get("skills") as string),
     }
-    console.log(data)
 
     const result = projectSchema.safeParse(data)
 
@@ -26,7 +29,7 @@ export default async function createProject(formData: FormData) {
             data: {
                 title,
                 startDate: date.from,
-                endDate: date.to,
+                endDate: date.to ?? null,
                 descriptions: {
                     create: descriptions.map((description) => ({
                         description: description.description,
@@ -49,5 +52,8 @@ export default async function createProject(formData: FormData) {
                 id: true,
             },
         })
+
+        revalidateTag("projects")
+        redirect("/")
     }
 }

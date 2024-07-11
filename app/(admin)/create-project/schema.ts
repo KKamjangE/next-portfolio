@@ -3,7 +3,9 @@ import { z } from "zod"
 export const projectSchema = z.object({
     title: z.string().trim().min(1, { message: "제목을 입력해주세요." }),
     date: z.object({
-        from: z.date(),
+        from: z.date({
+            required_error: "시작 날짜를 선택해주세요.",
+        }),
         to: z.date().optional(),
     }),
     descriptions: z.array(

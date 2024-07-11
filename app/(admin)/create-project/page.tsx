@@ -19,13 +19,21 @@ import { formatToKRDate } from "@/lib/utils"
 import createProject from "@/app/(admin)/create-project/actions"
 
 export default function CreateArticle() {
-    const { control, handleSubmit, register } = useForm<
-        z.infer<typeof projectSchema>
-    >({
+    const {
+        control,
+        handleSubmit,
+        register,
+        setError,
+        formState: { errors },
+    } = useForm<z.infer<typeof projectSchema>>({
         resolver: zodResolver(projectSchema),
         defaultValues: {
             descriptions: [{ description: "" }],
             skills: [{ name: "" }],
+            date: {
+                from: undefined,
+                to: undefined,
+            },
         },
     })
     const {
@@ -58,7 +66,13 @@ export default function CreateArticle() {
 
         const errors = await createProject(formData)
 
-        console.log(errors)
+        if (errors) {
+            for (const [field, message] of Object.entries(errors.fieldErrors)) {
+                setError(field as keyof z.infer<typeof projectSchema>, {
+                    message: message.join(", "),
+                })
+            }
+        }
     })
     const onValid = async () => {
         await onSubmit()
@@ -84,13 +98,21 @@ export default function CreateArticle() {
         <div>
             <form action={onValid} className="flex flex-col gap-3">
                 <Label htmlFor="title">Project Title</Label>
-                <Input {...register("title")} id="title" />
+                <Input
+                    {...register("title")}
+                    id="title"
+                    error={errors.title?.message}
+                />
                 <Label htmlFor="descriptions">Description</Label>
                 {descriptionsFields.map((field, index) => (
                     <div key={field.id} className="flex gap-3">
                         <Input
                             id="descriptions"
                             {...register(`descriptions.${index}.description`)}
+                            error={
+                                errors.descriptions?.[index]?.description
+                                    ?.message
+                            }
                         />
                         {index === 0 ? (
                             <Button
@@ -122,7 +144,7 @@ export default function CreateArticle() {
                             <PopoverTrigger asChild>
                                 <Button className="w-full" type="button">
                                     <CalendarIcon className="mr-2 h-4 w-4" />
-                                    {field.value ? (
+                                    {field.value.from ? (
                                         <span>
                                             {formatToKRDate(field.value.from)}~
                                             {field.value.to
@@ -130,7 +152,10 @@ export default function CreateArticle() {
                                                 : "진행 중"}
                                         </span>
                                     ) : (
-                                        <span>Select Date</span>
+                                        <span>
+                                            {errors.date?.from?.message ??
+                                                "Select Date"}
+                                        </span>
                                     )}
                                 </Button>
                             </PopoverTrigger>
@@ -159,6 +184,7 @@ export default function CreateArticle() {
                         <Input
                             {...register(`skills.${index}.name`)}
                             id="skills"
+                            error={errors.skills?.[index]?.name?.message}
                         />
                         {index === 0 ? (
                             <Button
