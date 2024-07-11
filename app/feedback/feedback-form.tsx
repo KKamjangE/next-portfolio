@@ -58,21 +58,15 @@ export default function FeedbackForm({ userId }: FeedbackFormProps) {
     return (
         <>
             {userId ? (
-                <>
-                    <form action={onValid} className="flex gap-3">
-                        <Input
-                            autoComplete="off"
-                            placeholder="잘 보고 갑니다~"
-                            {...register("payload")}
-                        />
-                        <Button>피드백 달기</Button>
-                    </form>
-                    {errors.payload && (
-                        <span className="text-sm text-red-500">
-                            {errors.payload?.message ?? ""}
-                        </span>
-                    )}
-                </>
+                <form action={onValid} className="flex gap-3">
+                    <Input
+                        autoComplete="off"
+                        placeholder="잘 보고 갑니다~"
+                        {...register("payload")}
+                        error={errors.payload?.message}
+                    />
+                    <Button>피드백 달기</Button>
+                </form>
             ) : (
                 <p className="font-semibold">
                     로그인 하시면 포트폴리오에 대한 피드백을 남기실 수 있어요!
