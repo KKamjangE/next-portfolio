@@ -16,49 +16,51 @@ export default function ProjectArticle({
     descriptions,
     startDate,
     endDate,
-    urls: { github, blog, site },
+    urls,
     skills,
 }: ProjectArticleProps) {
     return (
-        <article className="rounded-md border border-neutral-700 bg-blue-950/30 p-5">
-            <h2 className="text-2xl font-semibold">{title}</h2>
-            <ul className="list-disc pl-5 marker:text-blue-500">
+        <article className="flex flex-col gap-3">
+            <h2 className="text-3xl font-semibold">{title}</h2>
+            <span className="text-sm">
+                {formatToKRDate(startDate)}&nbsp;~&nbsp;
+                {endDate ? formatToKRDate(endDate) : "진행 중"}
+            </span>
+            <ul className="list-disc pl-5 marker:text-amber-500 dark:marker:text-blue-500">
                 {descriptions.map((description, index) => (
                     <li key={index}> {description.description}</li>
                 ))}
             </ul>
+            <h2 className="text-lg font-semibold">관련 링크</h2>
             <div className="flex justify-center gap-3">
-                {github && (
+                {urls?.github && (
                     <Button variant={"link"}>
-                        <Link href={github} target="_blank">
+                        <Link href={urls.github} target="_blank">
                             Github
                         </Link>
                     </Button>
                 )}
-                {blog && (
+                {urls?.blog && (
                     <Button variant={"link"}>
-                        <Link href={blog} target="_blank">
+                        <Link href={urls.blog} target="_blank">
                             Blog
                         </Link>
                     </Button>
                 )}
-                {site && (
+                {urls?.site && (
                     <Button variant={"link"}>
-                        <Link href={site} target="_blank">
+                        <Link href={urls.site} target="_blank">
                             Site
                         </Link>
                     </Button>
                 )}
             </div>
-            <div className="flex justify-center">
+            <h2 className="text-lg font-semibold">사용한 기술</h2>
+            <ul className="list-disc pl-5 marker:text-amber-500 dark:marker:text-blue-500">
                 {skills.map((skill) => (
-                    <p key={skill.name}>{skill.name}</p>
+                    <li key={skill.name}>{skill.name}</li>
                 ))}
-            </div>
-            <p className="text-sm">
-                {formatToKRDate(startDate)}~
-                {endDate ? formatToKRDate(endDate) : "진행 중"}
-            </p>
+            </ul>
         </article>
     )
 }

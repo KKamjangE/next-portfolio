@@ -3,7 +3,6 @@ import ProjectArticle from "@/app/(home)/project-article"
 
 export default async function Home() {
     const projects = await getProjects()
-
     return (
         <div>
             <h1>본인 소개</h1>
@@ -21,8 +20,12 @@ export default async function Home() {
                     />
                 ))}
             </section>
-            <h1>일과 관련된 경험 소개</h1>
-            <h1>기술, 학력 소개</h1>
+            <section>
+                <h1>일과 관련된 경험 소개</h1>
+            </section>
+            <section>
+                <h1>기술, 학력 소개</h1>
+            </section>
         </div>
     )
 }
