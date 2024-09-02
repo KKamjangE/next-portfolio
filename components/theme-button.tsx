@@ -10,13 +10,11 @@ export default function ThemeButton() {
     const { theme, systemTheme, setTheme } = useTheme()
 
     const onChangeTheme = () => {
-        let currentTheme
         if (theme === "system") {
-            currentTheme = systemTheme
+            setTheme(systemTheme === "dark" ? "light" : "dark")
         } else {
-            currentTheme = theme
+            setTheme(theme === "dark" ? "light" : "dark")
         }
-        setTheme(currentTheme === "dark" ? "light" : "dark")
     }
 
     return (
