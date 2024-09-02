@@ -29,6 +29,7 @@ export default function RootLayout({
                     <main className="mx-auto mb-20 mt-10 w-full max-w-screen-sm px-5">
                         {children}
                     </main>
+                    <AdminButton />
                 </ThemeProvider>
             </body>
         </html>
