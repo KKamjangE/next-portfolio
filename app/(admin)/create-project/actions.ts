@@ -1,9 +1,10 @@
 "use server"
 
-import { projectSchema } from "@/app/(admin)/create-project/schema"
-import db from "@/lib/db"
-import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
+
+import { projectSchema } from "@/app/(admin)/create-project/schema"
+
+import db from "@/lib/db"
 
 export default async function createProject(formData: FormData) {
     const data = {

@@ -1,7 +1,10 @@
-import { Noto_Sans_KR } from "next/font/google"
-import Header from "@/components/header"
-import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
+import { Noto_Sans_KR } from "next/font/google"
+
+import Header from "@/components/header"
+import SideNavigationBar from "@/components/side-mane"
+import { ThemeProvider } from "@/components/theme-provider"
+
 import "./globals.css"
 
 const notoSansKr = Noto_Sans_KR({ subsets: ["latin"] })
@@ -25,6 +28,7 @@ export default function RootLayout({
                     enableSystem
                 >
                     <Header />
+                    <SideNavigationBar />
                     <main className="mx-auto mb-20 mt-10 w-full max-w-screen-sm px-5">
                         {children}
                     </main>

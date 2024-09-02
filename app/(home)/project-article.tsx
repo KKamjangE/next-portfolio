@@ -1,6 +1,8 @@
-import { Button } from "@/components/ui/button"
-import { formatToKRDate } from "@/lib/utils"
 import Link from "next/link"
+
+import { Button } from "@/components/ui/button"
+
+import { formatToKRDate } from "@/lib/utils"
 
 interface ProjectArticleProps {
     title: string
