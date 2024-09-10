@@ -34,7 +34,7 @@ export default function NavigationMenu() {
                 <SheetContent side={"left"} className="border-neutral-600">
                     <SheetHeader className="text-left">
                         <SheetTitle>안제민</SheetTitle>
-                        <SheetDescription>FrontEnd Engineer</SheetDescription>
+                        <SheetDescription>FrontEnd</SheetDescription>
                     </SheetHeader>
                     <nav className="mt-8">
                         <ul>

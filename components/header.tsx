@@ -12,7 +12,7 @@ export default async function Header() {
 
     return (
         <header className="sticky top-0 z-50 border-b border-neutral-600 backdrop-blur">
-            <div className="m-auto flex h-12 max-w-screen-sm items-center justify-between px-5 *:flex *:items-center">
+            <div className="m-auto flex h-12 max-w-screen-md items-center justify-between px-5 *:flex *:items-center">
                 <div>
                     <NavigationMenu />
                     <h1 className="hidden lg:block">안제민 PortFolio</h1>
