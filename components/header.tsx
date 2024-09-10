@@ -16,7 +16,7 @@ export default async function Header() {
                 <div>
                     <NavigationMenu />
                     <Link href={"/"}>
-                        <h1 className="hidden lg:block">
+                        <h1 className="hidden md:block">
                             Jemin&apos;s PortFolio
                         </h1>
                     </Link>

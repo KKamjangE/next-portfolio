@@ -26,7 +26,7 @@ export default function NavigationMenu() {
     }
 
     return (
-        <div className="lg:hidden">
+        <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={sheetOpenChange}>
                 <SheetTrigger asChild>
                     <MenuIcon className="hover:cursor-pointer" />

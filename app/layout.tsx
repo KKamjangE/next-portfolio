@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Noto_Sans_KR } from "next/font/google"
 
 import Header from "@/components/header"
+import SideNavigationMenu from "@/components/navigation/side-navigation-menu"
 import { ThemeProvider } from "@/components/theme-provider"
 
 import "./globals.css"
@@ -27,9 +28,12 @@ export default function RootLayout({
                     enableSystem
                 >
                     <Header />
-                    <main className="mx-auto mb-20 mt-10 w-full max-w-screen-sm px-5">
-                        {children}
-                    </main>
+                    <div className="container flex-1 md:grid md:grid-cols-[220px_minmax(0,1fr)]">
+                        <SideNavigationMenu />
+                        <main className="mb-20 mt-10 w-full max-w-screen-sm px-5">
+                            {children}
+                        </main>
+                    </div>
                 </ThemeProvider>
             </body>
         </html>
