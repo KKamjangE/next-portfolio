@@ -14,7 +14,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 
-export default function HeaderNavigationMenu() {
+export default function NavigationMenu() {
     const [isOpen, setIsOpen] = useState(false)
 
     const sheetClose = () => {
