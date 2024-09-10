@@ -15,7 +15,11 @@ export default async function Header() {
             <div className="m-auto flex h-12 max-w-screen-md items-center justify-between px-5 *:flex *:items-center">
                 <div>
                     <NavigationMenu />
-                    <h1 className="hidden lg:block">안제민 PortFolio</h1>
+                    <Link href={"/"}>
+                        <h1 className="hidden lg:block">
+                            Jemin&apos;s PortFolio
+                        </h1>
+                    </Link>
                 </div>
                 <div>
                     {session?.user.id ? (
