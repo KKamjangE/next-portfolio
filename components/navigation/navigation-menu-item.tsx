@@ -18,7 +18,7 @@ export default function NavigationMenuItem({
     const pathname = usePathname()
 
     return (
-        <li className="my-2">
+        <li>
             <Link
                 href={href}
                 onClick={onClick}
