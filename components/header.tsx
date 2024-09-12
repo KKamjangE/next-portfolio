@@ -12,7 +12,7 @@ export default async function Header() {
 
     return (
         <header className="sticky top-0 z-50 border-b border-neutral-600 backdrop-blur">
-            <div className="m-auto flex h-12 max-w-screen-md items-center justify-between px-5 *:flex *:items-center">
+            <div className="m-auto flex h-12 max-w-screen-lg items-center justify-between px-5 *:flex *:items-center">
                 <div>
                     <NavigationMenu />
                     <Link href={"/"}>
