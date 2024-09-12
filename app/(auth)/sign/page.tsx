@@ -14,16 +14,18 @@ export default function Sign() {
     }
 
     return (
-        <div className="flex flex-col gap-5 p-5">
+        <div className="max-w-screen-md p-5">
             <h1 className="text-lg font-semibold">
                 소셜 계정으로 간편하게 로그인하기
             </h1>
-            <p>로그인 하시면 포트폴리오에 대한 피드백을 남기실 수 있어요.</p>
-            <div className="flex flex-col gap-5">
+            <p className="mt-5">
+                로그인 하시면 포트폴리오에 대한 피드백을 남기실 수 있어요.
+            </p>
+            <div className="mt-16 flex flex-col items-center gap-5 lg:flex-row">
                 <Button
                     onClick={loginWithGithub}
                     variant={"default"}
-                    className="text-md flex items-center justify-center gap-3 bg-neutral-950 font-medium hover:bg-neutral-950/90 dark:bg-neutral-50 dark:hover:bg-neutral-50/90"
+                    className="text-md flex w-full items-center justify-center gap-3 bg-neutral-950 font-medium hover:bg-neutral-950/90 dark:bg-neutral-50 dark:hover:bg-neutral-50/90"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +39,7 @@ export default function Sign() {
                 <Button
                     onClick={loginWithGoogle}
                     variant={"default"}
-                    className="text-md flex items-center justify-center gap-3 border border-neutral-400 bg-neutral-50 font-medium text-neutral-950 hover:bg-neutral-50/90 dark:bg-neutral-50 dark:hover:bg-neutral-50/90"
+                    className="text-md flex w-full items-center justify-center gap-3 border border-neutral-400 bg-neutral-50 font-medium text-neutral-950 hover:bg-neutral-50/90 dark:bg-neutral-50 dark:hover:bg-neutral-50/90"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

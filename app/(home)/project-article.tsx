@@ -22,7 +22,7 @@ export default function ProjectArticle({
     skills,
 }: ProjectArticleProps) {
     return (
-        <article className="flex flex-col gap-3">
+        <article className="flex max-w-screen-md flex-col gap-3">
             <h2 className="text-3xl font-semibold">{title}</h2>
             <span className="text-sm">
                 {formatToKRDate(startDate)}&nbsp;~&nbsp;
