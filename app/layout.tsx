@@ -28,11 +28,9 @@ export default function RootLayout({
                     enableSystem
                 >
                     <Header />
-                    <div className="container flex-1 md:grid md:grid-cols-[220px_minmax(0,1fr)]">
+                    <div className="container mx-auto flex-1 gap-8 md:grid md:grid-cols-[220px_minmax(0,1fr)]">
                         <SideNavigationMenu />
-                        <main className="mb-20 mt-10 w-full max-w-screen-sm px-5">
-                            {children}
-                        </main>
+                        <main className="mt-10 p-3">{children}</main>
                     </div>
                 </ThemeProvider>
             </body>
