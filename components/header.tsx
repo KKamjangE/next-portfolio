@@ -1,6 +1,7 @@
 import Link from "next/link"
 
-import NavigationMenu from "@/components/navigation/navigation-menu"
+import MainNav from "@/components/main-nav"
+import NavigationMenu from "@/components/navigation-menu"
 import SignOutButton from "@/components/sign-out-button"
 import ThemeButton from "@/components/theme-button"
 import { Button } from "@/components/ui/button"
@@ -15,11 +16,7 @@ export default async function Header() {
             <div className="m-auto flex h-12 max-w-screen-lg items-center justify-between px-5 *:flex *:items-center">
                 <div>
                     <NavigationMenu />
-                    <Link href={"/"}>
-                        <h1 className="hidden md:block">
-                            Jemin&apos;s PortFolio
-                        </h1>
-                    </Link>
+                    <MainNav />
                 </div>
                 <div>
                     {session?.user.id ? (
