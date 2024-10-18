@@ -1,4 +1,4 @@
-import NavigationMenuItem from "@/components/navigation/navigation-menu-item"
+import NavigationMenuItem from "@/components/navigation-menu-item"
 
 export default function SideNavigationMenu() {
     return (
@@ -8,8 +8,8 @@ export default function SideNavigationMenu() {
                     <NavigationMenuItem href={"/"}>
                         Introduction
                     </NavigationMenuItem>
-                    <NavigationMenuItem href={"/sign"}>
-                        SignIn
+                    <NavigationMenuItem href={"/projects"}>
+                        Projects
                     </NavigationMenuItem>
                 </ul>
             </nav>

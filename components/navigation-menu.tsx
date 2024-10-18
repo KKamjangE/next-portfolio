@@ -4,7 +4,7 @@ import { useState } from "react"
 
 import { MenuIcon } from "lucide-react"
 
-import NavigationMenuItem from "@/components/navigation/navigation-menu-item"
+import NavigationMenuItem from "@/components/navigation-menu-item"
 import {
     Sheet,
     SheetContent,
