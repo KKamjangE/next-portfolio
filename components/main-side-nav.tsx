@@ -4,7 +4,7 @@ import { useState } from "react"
 
 import { MenuIcon } from "lucide-react"
 
-import NavigationMenuItem from "@/components/navigation-menu-item"
+import NavItem from "@/components/nav-item"
 import {
     Sheet,
     SheetContent,
@@ -14,7 +14,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 
-export default function NavigationMenu() {
+export default function MainSideNav() {
     const [isOpen, setIsOpen] = useState(false)
 
     const sheetClose = () => {
@@ -38,15 +38,12 @@ export default function NavigationMenu() {
                     </SheetHeader>
                     <nav className="mt-8">
                         <ul>
-                            <NavigationMenuItem href="/" onClick={sheetClose}>
+                            <NavItem href="/" onClick={sheetClose}>
                                 Introduction
-                            </NavigationMenuItem>
-                            <NavigationMenuItem
-                                href="/sign"
-                                onClick={sheetClose}
-                            >
+                            </NavItem>
+                            <NavItem href="/sign" onClick={sheetClose}>
                                 SignIn
-                            </NavigationMenuItem>
+                            </NavItem>
                         </ul>
                     </nav>
                 </SheetContent>
