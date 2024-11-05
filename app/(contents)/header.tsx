@@ -1,9 +1,9 @@
 import Link from "next/link"
 
-import MainNav from "@/components/main-nav"
-import MainSideNav from "@/components/main-side-nav"
-import SignOutButton from "@/components/sign-out-button"
-import ThemeButton from "@/components/theme-button"
+import MainNav from "@/app/(contents)/main-nav"
+import MainSideNav from "@/app/(contents)/main-side-nav"
+import SignOutButton from "@/app/(contents)/sign-out-button"
+import ThemeButton from "@/app/(contents)/theme-button"
 import { Button } from "@/components/ui/button"
 
 import { getAuthSession } from "@/lib/auth"

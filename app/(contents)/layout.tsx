@@ -1,4 +1,4 @@
-import Header from "@/components/header"
+import Header from "@/app/(contents)/header"
 
 export default function ContentsLayout({
     children,

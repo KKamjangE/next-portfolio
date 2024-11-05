@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Noto_Sans_KR } from "next/font/google"
 
-import Header from "@/components/header"
 import { ThemeProvider } from "@/components/theme-provider"
 
 import "./globals.css"
@@ -26,7 +25,6 @@ export default function RootLayout({
                     defaultTheme="system"
                     enableSystem
                 >
-                    <Header />
                     <main>{children}</main>
                 </ThemeProvider>
             </body>
