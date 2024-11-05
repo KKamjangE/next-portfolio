@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import MainNav from "@/components/main-nav"
-import NavigationMenu from "@/components/navigation-menu"
+import MainSideNav from "@/components/main-side-nav"
 import SignOutButton from "@/components/sign-out-button"
 import ThemeButton from "@/components/theme-button"
 import { Button } from "@/components/ui/button"
@@ -15,7 +15,7 @@ export default async function Header() {
         <header className="sticky top-0 z-50 border-b border-neutral-600 backdrop-blur">
             <div className="m-auto flex h-12 max-w-screen-lg items-center justify-between px-5 *:flex *:items-center">
                 <div>
-                    <NavigationMenu />
+                    <MainSideNav />
                     <MainNav />
                 </div>
                 <div>

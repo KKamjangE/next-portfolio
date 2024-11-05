@@ -27,9 +27,7 @@ export default function RootLayout({
                     enableSystem
                 >
                     <Header />
-                    <div className="container mx-auto flex-1 gap-8 md:grid md:grid-cols-[220px_minmax(0,1fr)]">
-                        <main className="mt-10 p-3">{children}</main>
-                    </div>
+                    <main>{children}</main>
                 </ThemeProvider>
             </body>
         </html>
