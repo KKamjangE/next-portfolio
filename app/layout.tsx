@@ -19,13 +19,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${notoSansKr.className} min-h-screen`}>
+            <body className={`${notoSansKr.className}`}>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
                     enableSystem
                 >
-                    <main>{children}</main>
+                    <main className="min-h-screen">{children}</main>
                 </ThemeProvider>
             </body>
         </html>

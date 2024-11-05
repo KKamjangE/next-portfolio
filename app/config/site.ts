@@ -2,8 +2,8 @@ export const siteConfig = {
     name: "Jemin's Docs",
     description: "",
     links: {
-        velog: "",
-        github: "",
+        velog: "https://velog.io/@ajm0718/posts",
+        github: "https://github.com/KKamjangE",
     },
 }
 
