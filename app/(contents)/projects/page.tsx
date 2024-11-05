@@ -1,5 +1,5 @@
-import { getProjects } from "@/app/(home)/actions"
-import ProjectArticle from "@/app/(home)/project-article"
+import { getProjects } from "@/app/(introduction)/actions"
+import ProjectArticle from "@/app/(introduction)/project-article"
 
 export default async function Projects() {
     const projects = await getProjects()
