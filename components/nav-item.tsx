@@ -10,7 +10,7 @@ interface NavigationMenuItemProps {
     onClick?: () => void
 }
 
-export default function NavigationMenuItem({
+export default function NavItem({
     href,
     onClick,
     children,
