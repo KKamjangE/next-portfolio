@@ -4,10 +4,10 @@ import IntroNav from "@/app/(introduction)/intro-nav"
 
 export default async function Home() {
     return (
-        <section className="relative max-h-screen min-h-screen overflow-hidden">
+        <main className="size-full">
             <Spline
-                scene="https://prod.spline.design/Z-rpjFo7KruOYKch/scene.splinecode"
-                className="h-full w-full"
+                scene="https://prod.spline.design/ZsFwfHNvfCrRyJ-8/scene.splinecode"
+                className="absolute size-full"
             />
             <IntroNav />
             {/* <h1>안녕하세요. 기록과 소통을 좋아하는 안제민입니다.</h1>
@@ -22,6 +22,6 @@ export default async function Home() {
             <section>
                 <h1>기술, 학력 소개</h1>
             </section> */}
-        </section>
+        </main>
     )
 }
