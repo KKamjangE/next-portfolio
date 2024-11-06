@@ -10,12 +10,12 @@ export default function IntroNav() {
                     Jemin&apos;s PortFolio
                 </h2>
                 <nav className="flex gap-12 *:text-4xl *:font-semibold">
-                    <Link href={siteConfig.links.github}>
+                    <a href={siteConfig.links.github} target="_blank">
                         <span>Github</span>
-                    </Link>
-                    <Link href={siteConfig.links.velog}>
+                    </a>
+                    <a href={siteConfig.links.velog} target="_blank">
                         <span>Velog</span>
-                    </Link>
+                    </a>
                 </nav>
             </div>
             <div className="absolute bottom-10 left-10 text-2xl font-semibold">
