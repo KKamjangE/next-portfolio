@@ -6,11 +6,11 @@ import { formatToKRDate } from "@/lib/utils"
 
 interface ProjectArticleProps {
     title: string
-    descriptions: { description: string }[]
+    descriptions: string[]
     startDate: Date
     endDate: Date | null
     urls: { github: string | null; blog: string | null; site: string | null }
-    skills: { name: string }[]
+    skills: string[]
 }
 
 export default function ProjectArticle({
@@ -30,7 +30,7 @@ export default function ProjectArticle({
             </span>
             <ul className="list-disc pl-5 marker:text-amber-500 dark:marker:text-blue-500">
                 {descriptions.map((description, index) => (
-                    <li key={index}> {description.description}</li>
+                    <li key={index}> {description}</li>
                 ))}
             </ul>
             <h2 className="text-lg font-semibold">관련 링크</h2>
@@ -60,7 +60,7 @@ export default function ProjectArticle({
             <h2 className="text-lg font-semibold">사용한 기술</h2>
             <ul className="list-disc pl-5 marker:text-amber-500 dark:marker:text-blue-500">
                 {skills.map((skill) => (
-                    <li key={skill.name}>{skill.name}</li>
+                    <li key={skill}>{skill}</li>
                 ))}
             </ul>
         </article>
