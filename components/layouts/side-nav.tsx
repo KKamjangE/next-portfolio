@@ -1,4 +1,4 @@
-import NavItem from "@/components/nav-item"
+import NavItem from "@/components/layouts/nav-item"
 
 export default function SideNav() {
     return (

@@ -1,5 +1,5 @@
-import Header from "@/app/(contents)/header"
-import SideNav from "@/components/side-nav"
+import Header from "@/components/layouts/header"
+import SideNav from "@/components/layouts/side-nav"
 
 export default function ContentsLayout({
     children,
