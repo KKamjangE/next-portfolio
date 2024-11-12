@@ -1,5 +1,7 @@
 import Link from "next/link"
 
+import GithubLink from "@/app/(contents)/product/github-link"
+import VelogLink from "@/app/(contents)/product/velog-link"
 import { Button } from "@/components/ui/button"
 
 import { formatToKRDate } from "@/lib/utils"
@@ -35,20 +37,8 @@ export default function ProjectArticle({
             </ul>
             <h2 className="text-lg font-semibold">관련 링크</h2>
             <div className="flex justify-center gap-3">
-                {urls?.github && (
-                    <Button variant={"link"}>
-                        <Link href={urls.github} target="_blank">
-                            Github
-                        </Link>
-                    </Button>
-                )}
-                {urls?.blog && (
-                    <Button variant={"link"}>
-                        <Link href={urls.blog} target="_blank">
-                            Blog
-                        </Link>
-                    </Button>
-                )}
+                {urls?.github && <GithubLink url={urls.github} />}
+                {urls?.blog && <VelogLink url={urls.blog} />}
                 {urls?.site && (
                     <Button variant={"link"}>
                         <Link href={urls.site} target="_blank">
