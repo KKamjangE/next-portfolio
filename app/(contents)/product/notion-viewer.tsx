@@ -32,17 +32,20 @@ const Modal = dynamic(
         ssr: false,
     },
 )
+const Code = dynamic(() =>
+    import("react-notion-x/build/third-party/code").then((m) => m.Code),
+)
 
 export default function NotionViewer({ data }: { data: ExtendedRecordMap }) {
     return (
         <NotionRenderer
             recordMap={data}
-            fullPage
             darkMode
             disableHeader
             components={{
                 nextImage: Image,
                 nextLink: Link,
+                Code,
                 Collection,
                 Equation,
                 Pdf,
