@@ -42,6 +42,7 @@ export default function NotionViewer({ data }: { data: ExtendedRecordMap }) {
             recordMap={data}
             darkMode
             disableHeader
+            mapPageUrl={(pageId) => `/product/${pageId}`}
             components={{
                 nextImage: Image,
                 nextLink: Link,
