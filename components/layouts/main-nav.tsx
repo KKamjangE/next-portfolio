@@ -3,6 +3,8 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
+import { mainNav } from "@/app/config/nav"
+
 import { cn } from "@/lib/utils"
 
 export default function MainNav() {
@@ -14,17 +16,20 @@ export default function MainNav() {
                 <h1>Jemin&apos;s PortFolio</h1>
             </Link>
             <nav className="hidden items-center gap-4 text-sm md:flex">
-                <Link
-                    href={"/projects"}
-                    className={cn(
-                        "transition-opacity hover:opacity-100",
-                        pathname.startsWith("/projects")
-                            ? "opacity-100"
-                            : "opacity-50",
-                    )}
-                >
-                    Projects
-                </Link>
+                {mainNav.map((nav, index) => (
+                    <Link
+                        key={index}
+                        href={nav.href}
+                        className={cn(
+                            "transition-opacity hover:opacity-100",
+                            pathname.startsWith(nav.href)
+                                ? "opacity-100"
+                                : "opacity-50",
+                        )}
+                    >
+                        {nav.title}
+                    </Link>
+                ))}
             </nav>
         </div>
     )

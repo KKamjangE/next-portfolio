@@ -4,6 +4,7 @@ import { useState } from "react"
 
 import { MenuIcon } from "lucide-react"
 
+import { mainSideNav } from "@/app/config/nav"
 import NavItem from "@/components/layouts/nav-item"
 import {
     Sheet,
@@ -31,19 +32,26 @@ export default function MainSideNav() {
                 <SheetTrigger asChild>
                     <MenuIcon className="hover:cursor-pointer" />
                 </SheetTrigger>
-                <SheetContent side={"left"} className="border-neutral-600">
+                <SheetContent
+                    side={"left"}
+                    className="z-[500] border-neutral-600"
+                >
                     <SheetHeader className="text-left">
                         <SheetTitle>안제민</SheetTitle>
                         <SheetDescription>FrontEnd</SheetDescription>
                     </SheetHeader>
                     <nav className="mt-8">
                         <ul>
-                            <NavItem href="/" onClick={sheetClose}>
-                                Introduction
-                            </NavItem>
-                            <NavItem href="/sign" onClick={sheetClose}>
-                                SignIn
-                            </NavItem>
+                            {mainSideNav.map((nav, index) => (
+                                <li key={index}>
+                                    <NavItem
+                                        href={nav.href}
+                                        onClick={sheetClose}
+                                    >
+                                        {nav.title}
+                                    </NavItem>
+                                </li>
+                            ))}
                         </ul>
                     </nav>
                 </SheetContent>
