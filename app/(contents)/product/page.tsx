@@ -1,8 +1,12 @@
-import { getNotionData } from "@/app/(contents)/product/actions"
-import NotionViewer from "@/app/(contents)/product/notion-render"
+import { getNotionPage } from "@/app/(contents)/product/actions"
+import NotionViewer from "@/app/(contents)/product/notion-viewer"
 
 export default async function Product() {
-    const data = await getNotionData("13805fa11ff880069d37f6b25e0fd66d")
-    console.log(data)
-    return <NotionViewer data={data} />
+    const page = await getNotionPage("13805fa11ff880b8addddc32b66c9a8c")
+
+    return (
+        <div>
+            <NotionViewer data={page} />
+        </div>
+    )
 }
