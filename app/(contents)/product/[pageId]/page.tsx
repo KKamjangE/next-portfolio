@@ -6,7 +6,7 @@ export default async function ProductDetail({
 }: {
     params: { pageId: string }
 }) {
-    const data = await getNotionPage(params.pageId)
+    const page = await getNotionPage(params.pageId)
 
-    return <NotionViewer data={data} />
+    return <NotionViewer page={page} />
 }

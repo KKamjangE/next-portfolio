@@ -36,10 +36,10 @@ const Code = dynamic(() =>
     import("react-notion-x/build/third-party/code").then((m) => m.Code),
 )
 
-export default function NotionViewer({ data }: { data: ExtendedRecordMap }) {
+export default function NotionViewer({ page }: { page: ExtendedRecordMap }) {
     return (
         <NotionRenderer
-            recordMap={data}
+            recordMap={page}
             darkMode
             disableHeader
             mapPageUrl={(pageId) => `/product/${pageId}`}
