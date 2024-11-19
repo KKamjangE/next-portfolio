@@ -13,7 +13,7 @@ export async function getProjects() {
     return projects
 }
 
-export async function getNotionData(pageId: string) {
+export async function getNotionPage(pageId: string) {
     return await notion.getPage(pageId)
 }
 
@@ -22,8 +22,8 @@ export async function getNotionDB() {
         database_id: process.env.NOTION_DATABASE_ID!,
         sorts: [
             {
-                property: "생성 일시",
                 direction: "ascending",
+                timestamp: "created_time",
             },
         ],
     })
