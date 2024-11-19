@@ -1,5 +1,9 @@
 import type { Metadata } from "next"
 import { Noto_Sans_KR } from "next/font/google"
+import "react-notion-x/src/styles.css"
+
+import "katex/dist/katex.min.css"
+import "prismjs/themes/prism-tomorrow.css"
 
 import { ThemeProvider } from "@/components/theme-provider"
 
