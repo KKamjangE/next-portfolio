@@ -18,6 +18,11 @@ export default function IntroNav() {
                     </a>
                 </nav>
             </div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <Link href={"/product"} className="text-4xl font-bold">
+                    Go to Docs!
+                </Link>
+            </div>
             <div className="absolute bottom-4 left-4 text-xl font-semibold md:bottom-10 md:left-10 md:text-2xl">
                 lastupdated: https://github.com/orgs/vercel/discussions/587
             </div>
