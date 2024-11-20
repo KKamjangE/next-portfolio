@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-    .notion-page-icon-inline {
-        @apply hidden !important;
-    }
+.notion-page-icon-inline,
+.notion-page-icon-span {
+    display: none !important;
+}
+
+.notion-gallery-grid {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.notion-collection-card-cover {
+    border-bottom: 0;
 }
