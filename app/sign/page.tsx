@@ -17,7 +17,7 @@ export default function Sign() {
     }
 
     return (
-        <div className="max-w-screen-md p-5">
+        <div className="mx-auto mt-10 max-w-screen-md p-5 md:mt-32">
             <h1 className="text-lg font-semibold">
                 소셜 계정으로 간편하게 로그인하기
             </h1>
