@@ -28,3 +28,45 @@ export async function getNotionDB() {
         ],
     })
 }
+
+export async function getData(): Promise<NotionDatabaseResponse> {
+    const response = await fetch(
+        `https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`,
+        {
+            method: "POST",
+            headers: {
+                "Notion-Version": "2022-06-28",
+                Authorization: `Bearer ${process.env.NOTION_SECRET}`,
+            },
+        },
+    )
+
+    if (!response.ok) {
+        throw new Error("Fetch Failed")
+    }
+
+    const data: NotionDatabaseResponse = await response.json()
+    return data
+}
+
+export interface NotionDatabaseResponse {
+    results: [
+        {
+            id: string
+            properties: {
+                Date: {
+                    id: string
+                    type: string
+                    created_time: string
+                }
+                title: {
+                    title: [
+                        {
+                            plain_text: string
+                        },
+                    ]
+                }
+            }
+        },
+    ]
+}
