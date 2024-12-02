@@ -4,13 +4,17 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ReactNode } from "react"
 
+import { cn } from "@/lib/utils"
+
 interface NavigationMenuItemProps {
+    className?: string
     href: string
     children: ReactNode
     onClick?: () => void
 }
 
 export default function NavItem({
+    className,
     href,
     onClick,
     children,
@@ -21,7 +25,10 @@ export default function NavItem({
         <Link
             href={href}
             onClick={onClick}
-            className={`text-md ${pathname == href ? "opacity-100" : "opacity-40"} transition-opacity hover:opacity-100`}
+            className={cn(
+                `text-lg ${pathname == href ? "opacity-100" : "opacity-40"} transition-opacity hover:opacity-100`,
+                className,
+            )}
         >
             {children}
         </Link>
