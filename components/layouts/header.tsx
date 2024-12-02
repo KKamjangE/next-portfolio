@@ -13,17 +13,17 @@ export default async function Header() {
 
     return (
         <header className="sticky top-0 z-[500] border-b border-neutral-600 backdrop-blur">
-            <div className="m-auto flex h-12 max-w-screen-lg items-center justify-between px-5 *:flex *:items-center">
-                <div>
-                    <MainSideNav />
-                    <MainNav />
-                </div>
+            <div className="m-auto flex h-16 max-w-screen-lg items-center justify-between px-5 *:flex *:items-center">
+                <MainSideNav />
+                <MainNav />
                 <div>
                     {session?.user.id ? (
                         <SignOutButton />
                     ) : (
                         <Link href={"/sign"}>
-                            <Button variant={"link"}>SignIn</Button>
+                            <Button variant={"link"} className="text-lg">
+                                SignIn
+                            </Button>
                         </Link>
                     )}
                     <ThemeButton />

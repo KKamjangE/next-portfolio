@@ -41,18 +41,15 @@ export default function MainSideNav() {
                         <SheetDescription>FrontEnd</SheetDescription>
                     </SheetHeader>
                     <nav className="mt-8">
-                        <ul>
-                            {mainSideNav.map((nav, index) => (
-                                <li key={index}>
-                                    <NavItem
-                                        href={nav.href}
-                                        onClick={sheetClose}
-                                    >
-                                        {nav.title}
-                                    </NavItem>
-                                </li>
-                            ))}
-                        </ul>
+                        {mainSideNav.map((nav, index) => (
+                            <NavItem
+                                key={index}
+                                href={nav.href}
+                                onClick={sheetClose}
+                            >
+                                {nav.title}
+                            </NavItem>
+                        ))}
                     </nav>
                 </SheetContent>
             </Sheet>
