@@ -40,12 +40,13 @@ export default function MainSideNav() {
                         <SheetTitle>안제민</SheetTitle>
                         <SheetDescription>FrontEnd</SheetDescription>
                     </SheetHeader>
-                    <nav className="mt-8">
+                    <nav className="mt-8 flex flex-col">
                         {mainSideNav.map((nav, index) => (
                             <NavItem
                                 key={index}
                                 href={nav.href}
                                 onClick={sheetClose}
+                                className="text-lg"
                             >
                                 {nav.title}
                             </NavItem>

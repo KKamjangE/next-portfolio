@@ -22,7 +22,11 @@ export default async function ProductNav() {
             <nav>
                 <ul className="flex flex-col gap-2">
                     {navList.map((nav) => (
-                        <NavItem key={nav?.id} href={`/product/${nav?.id}`}>
+                        <NavItem
+                            key={nav?.id}
+                            href={`/product/${nav?.id}`}
+                            className="text-lg"
+                        >
                             {nav?.title}
                         </NavItem>
                     ))}

@@ -26,7 +26,8 @@ export default function NavItem({
             href={href}
             onClick={onClick}
             className={cn(
-                `text-lg ${pathname == href ? "opacity-100" : "opacity-40"} transition-opacity hover:opacity-100`,
+                "transition-opacity hover:opacity-100",
+                pathname == href ? "opacity-100" : "opacity-40",
                 className,
             )}
         >
