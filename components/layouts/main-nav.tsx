@@ -8,7 +8,9 @@ export default function MainNav() {
     return (
         <div className="items-start justify-start md:flex">
             <Link href={"/"} className="ml-4 mr-6 md:ml-0">
-                <h1 className="text-xl">Jemin&apos;s PortFolio</h1>
+                <h1 className="text-xl font-semibold">
+                    Jemin&apos;s PortFolio
+                </h1>
             </Link>
             <nav className="hidden gap-0 md:flex md:gap-2">
                 {mainNav.map((nav, index) => (
