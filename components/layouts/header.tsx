@@ -13,15 +13,15 @@ export default async function Header() {
 
     return (
         <header className="sticky top-0 z-[500] border-b border-neutral-600 backdrop-blur">
-            <div className="m-auto flex h-16 max-w-screen-lg items-center justify-between px-5 *:flex *:items-center">
+            <div className="m-auto flex h-16 max-w-screen-lg items-center justify-start px-5 *:flex *:items-center md:justify-between">
                 <MainSideNav />
                 <MainNav />
-                <div>
+                <div className="ml-auto md:ml-0">
                     {session?.user.id ? (
                         <SignOutButton />
                     ) : (
                         <Link href={"/sign"}>
-                            <Button variant={"link"} className="text-lg">
+                            <Button variant={"link"} className="text-md">
                                 SignIn
                             </Button>
                         </Link>
