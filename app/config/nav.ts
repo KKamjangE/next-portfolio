@@ -5,7 +5,7 @@ export interface NavItem {
 
 export const mainNav: NavItem[] = [
     { title: "Product", href: "/product" },
-    { title: "Education", href: "/education" },
+    { title: "Resume", href: "/resume" },
 ]
 export const mainSideNav: NavItem[] = [
     { title: "Introduction", href: "/" },
