@@ -77,24 +77,25 @@ model Comments {
   updatedAt DateTime @updatedAt
 }
 
-model Projects {
-  id           String    @id @default(cuid())
-  title        String
-  startDate    DateTime
-  endDate      DateTime?
-  urls         Urls?
-  descriptions String[]
-  skills       String[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model Career {
+  id                    String   @id @default(cuid())
+  title                 String   @unique
+  employment_start_date String
+  employment_end_date   String?
+  description           String[]
 }
 
-model Urls {
-  id         String   @id @default(cuid())
-  github     String?
-  blog       String?
-  site       String?
-  Projects   Projects @relation(fields: [projectsId], references: [id], onDelete: Cascade)
-  projectsId String   @unique
+model Education {
+  id                   String   @id @default(cuid())
+  title                String   @unique
+  education_start_date String
+  education_end_date   String?
+  description          String[]
+}
+
+model Share {
+  id          String   @id @default(cuid())
+  title       String   @unique
+  link        String
+  description String[]
 }
