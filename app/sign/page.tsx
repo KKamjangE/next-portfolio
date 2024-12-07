@@ -17,14 +17,11 @@ export default function Sign() {
     }
 
     return (
-        <div className="mx-auto mt-10 max-w-screen-md p-5 md:mt-32">
-            <h1 className="text-lg font-semibold">
+        <div className="mx-auto mt-10 max-w-screen-md p-5">
+            <h1 className="text-2xl font-semibold">
                 소셜 계정으로 간편하게 로그인하기
             </h1>
-            <p className="mt-5">
-                로그인 하시면 포트폴리오에 대한 피드백을 남기실 수 있어요.
-            </p>
-            <div className="mt-16 flex flex-col items-center gap-5 lg:flex-row">
+            <div className="mt-14 flex flex-col items-center gap-5 lg:flex-row">
                 <Button
                     onClick={loginWithGithub}
                     variant={"default"}

@@ -6,7 +6,7 @@ export default function ContentsLayout({
     return (
         <>
             <Header />
-            <div className="container mt-3 flex-1 gap-8 p-3 md:grid md:grid-cols-[220px_minmax(0,1fr)]">
+            <div className="container mb-20 mt-10 flex-1 gap-8 md:grid md:grid-cols-[220px_minmax(0,1fr)]">
                 {children}
             </div>
         </>
