@@ -14,6 +14,34 @@ export default async function Resume() {
             <div></div>
             <div className="flex flex-col gap-16">
                 <section>
+                    <h2 className="mb-5 text-3xl font-semibold">
+                        안녕하세요!🖐️
+                        <br />
+                        기록과 소통을 좋아하는 안제민입니다.
+                    </h2>
+                    <p className="text-xl">
+                        배운 것을&nbsp;
+                        <span className="font-semibold text-orange-400">
+                            기록
+                        </span>
+                        하고&nbsp;
+                        <span className="font-semibold text-orange-400">
+                            공유
+                        </span>
+                        하는 것을 좋아합니다.
+                        <br />
+                        <span className="font-semibold text-orange-400">
+                            커뮤니케이션
+                        </span>
+                        이 생산성과 협업에 도움이 되기에 항상 원활한&nbsp;
+                        <span className="font-semibold text-orange-400">
+                            커뮤니케이션
+                        </span>
+                        을 위해 노력합니다.
+                        <br />
+                    </p>
+                </section>
+                <section>
                     <h2 className="mb-5 text-4xl font-semibold">Career</h2>
                     <div className="flex flex-col gap-6">
                         {careers.map((career) => (
